@@ -3,6 +3,11 @@
 # mv /var/www/flasktest/config/flasktest /etc/nginx/sites-available/
 # and simlink into
 # ln -s /etc/nginx/sites-available/flasktest /etc/nginx/sites-enabled
+
+# now test setup
+# nginx -t
+# If it passes run
+# service nginx restart
 server {
     listen 80;
     server_tokens off;
