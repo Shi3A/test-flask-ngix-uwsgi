@@ -1,0 +1,27 @@
+# cd /etc/nginx/sites-available
+# sudo rm default
+# move this file into /etc/nginx/sites-available
+# and simlink into
+
+server {
+    listen 80;
+    server_tokens off;
+    # ip address or domain
+    # server_name www.mysite.com mysite.com
+    server_name 104.197.13.112;
+
+     location / {
+         include uwsgi_params;
+         #uwsgi_pass unix:/tmp/flasktest.sock;
+         uwsgi_pass unix:/home/user/myproject/flasktest.sock
+     }
+
+     location /static {
+         alias /var/www/flasktest/static;
+     }
+
+#     ## Only requests to our Host are allowed
+#     if ($host !~ ^(mysite.com|www.mysite.com)$ ) {
+#        return 444;
+#     }
+}
