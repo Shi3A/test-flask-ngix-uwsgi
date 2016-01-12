@@ -1,8 +1,8 @@
-# cd /etc/nginx/sites-available
-# sudo rm default
-# move this file into /etc/nginx/sites-available
+# rm /etc/nginx/sites-available/default
+# rm /etc/nginx/sites-enabled/default
+# mv /var/www/flasktest/config/flasktest /etc/nginx/sites-available/
 # and simlink into
-
+# ln -s /etc/nginx/sites-available/flasktest /etc/nginx/sites-enabled
 server {
     listen 80;
     server_tokens off;
@@ -13,7 +13,7 @@ server {
      location / {
          include uwsgi_params;
          #uwsgi_pass unix:/tmp/flasktest.sock;
-         uwsgi_pass unix:/home/user/myproject/flasktest.sock
+         uwsgi_pass unix:/home/user/myproject/flasktest.sock;
      }
 
      location /static {
