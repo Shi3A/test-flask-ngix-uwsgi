@@ -12,3 +12,11 @@ inside /var/www
 $ git clone https://github.com/vincentdavis/test-flask-ngix-uwsgi.git flasktest
 
 ################
+
+sudo service uwsgi restart
+
+sudo service nginx restart
+
+tail /var/log/uwsgi/app/flasktest.log
+
+tail /var/log/nginx/error.log
