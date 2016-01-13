@@ -6,11 +6,9 @@ I do this next line so that the normal conda source activate ... works
 $ ~/miniconda3/envs/testenv/ /var/www/flasktest/testenv/
 
 
-$ sudo apt-get install nginx uwsgi uwsgi-plugin-python
+$ sudo apt-get install nginx uwsgi uwsgi-plugin-python3
 
 inside /var/www
 $ git clone https://github.com/vincentdavis/test-flask-ngix-uwsgi.git flasktest
 
 ################
-
-tes 
