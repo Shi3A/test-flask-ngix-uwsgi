@@ -16,12 +16,14 @@ server {
     # server_name www.mysite.com mysite.com
     server_name 104.197.13.112;
 
-     location / {
-         include uwsgi_params;
-         uwsgi_pass unix:/var/www/flasktest/flasktest.sock;
-     }
-
-     location /static {
+    location /static {
          alias /var/www/flasktest/static;
      }
+
+     location / {
+         include uwsgi_params;
+         uwsgi_pass unix:///tmp/flasktest.sock;
+         include uwsgi_params;
+     }
+
 }
