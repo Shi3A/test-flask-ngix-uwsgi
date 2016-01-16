@@ -1,0 +1,13 @@
+# sudo nano /etc/nginx/sites-available/myproject
+# or
+# sudo cp ~/flasktest/config/flasktest /etc/nginx/sites-available/flasktest
+server {
+    listen 80;
+#    listen [::]:80 ipv6only=on;
+    server_name (ip add);
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/vincentdavis/flasktest/flasktest.sock;
+    }
+}
