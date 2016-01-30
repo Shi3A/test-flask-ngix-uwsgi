@@ -1,0 +1,25 @@
+[uwsgi]
+uid = www-data
+gid = www-data
+socket=%UWSGI_LISTEN%
+listen=20
+master=true
+workers = 2
+pidfile=/var/run/uwsgi_%SERVER_NAME%.pid
+processes=2
+plugins=python35
+module=%UWSGI_MODULE%
+callable=%UWSGI_CALLABLE%
+profiler=true
+memory-report=true
+enable-threads=true
+log-date=true
+limit-as=6048
+virtualenv=%ENV_PATH%
+chdir=%HOME_DIR%
+pythonpath=..
+
+# inherit
+autoload = true
+no-orphans = true
+chmod-socket = 660

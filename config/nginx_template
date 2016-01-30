@@ -1,0 +1,11 @@
+server {
+	listen 80;
+	server_name %SERVER_NAME%;
+	root %ROOT_PATH%;
+
+	location / {
+		include	uwsgi_params;
+		uwsgi_pass %UWSGI_LISTEN%;
+
+	}
+}
